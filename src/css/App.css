@@ -13,6 +13,7 @@ body {
   width: 80vw;
   padding: 10px; */
   position: relative;
+  padding-top: 30px;
   padding-left: 15px;
 }
 .bar {
