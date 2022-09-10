@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.menu {
+  background-color: cadetblue;
+  width: 100vw;
+  height: 45vh;
+}
+
+.array-container {
+  /* margin: auto;
+  width: 80vw;
+  padding: 10px; */
+  position: relative;
+  padding-left: 15px;
+}
+.bar {
+  background-color: black;
+  display: inline-block;
+  justify-content: center;
+  margin: 0 1px;
+}
