@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/App.css";
 import { Slider, Button } from "@mantine/core";
 import { BubbleSort } from "./algorithms/BubbleSort";
+import { selectionSort } from "./algorithms/SelectionSort";
 
 const generateRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -10,8 +11,8 @@ const generateRandomInteger = (min, max) => {
 const App = () => {
   const [allDisable, setAllDisable] = useState(false);
   const [sortArray, setSortArray] = useState([]);
-  const [sliderValue, setSliderValue] = useState(80);
-  const [speedSliderValue, setSpeedSliderValue] = useState(80);
+  const [sliderValue, setSliderValue] = useState(25);
+  const [speedSliderValue, setSpeedSliderValue] = useState(50);
 
   const handleAllButtons = (x) => {
     setAllDisable(x);
@@ -43,6 +44,8 @@ const App = () => {
         break;
 
       case "selectionButton":
+        handleAllButtons(true);
+        selectionSort(speedSliderValue, handleAllButtons);
     }
   };
 
@@ -97,6 +100,14 @@ const App = () => {
             onClick={startAlgorithm}
           >
             Bubble Sort
+          </Button>
+          <Button
+            disabled={allDisable}
+            id="selectionButton"
+            size="md"
+            onClick={startAlgorithm}
+          >
+            Selection Sort
           </Button>
         </div>
       </div>
