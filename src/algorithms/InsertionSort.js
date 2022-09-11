@@ -9,10 +9,12 @@ export const insertionSort = async (s, handleAllButtons) => {
     let current = Number(array[i].getAttribute("value"));
     // The last element of our sorted subarray
     let j = i - 1;
-    await new Promise((r) => setTimeout(r, speed));
 
     while (j > -1 && current < Number(array[j].getAttribute("value"))) {
       array[j].style.backgroundColor = "darkgreen";
+
+      // applies delay
+      await new Promise((r) => setTimeout(r, speed));
 
       // change the value of the bars
       var temp = array[j].getAttribute("value");
@@ -30,6 +32,7 @@ export const insertionSort = async (s, handleAllButtons) => {
     array[j + 1].setAttribute("value", current);
     array[i].style.backgroundColor = "black";
   }
+  // turn bars green and enable buttons
   array.forEach(function (bar) {
     bar.style.backgroundColor = "green";
     handleAllButtons(false);

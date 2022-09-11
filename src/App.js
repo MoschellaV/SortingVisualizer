@@ -4,6 +4,7 @@ import { Slider, Button } from "@mantine/core";
 import { bubbleSort } from "./algorithms/BubbleSort";
 import { selectionSort } from "./algorithms/SelectionSort";
 import { insertionSort } from "./algorithms/InsertionSort";
+import { doMergeSort } from "./algorithms/MergeSort";
 
 const generateRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -52,6 +53,10 @@ const App = () => {
       case "insertionButton":
         handleAllButtons(true);
         insertionSort(speedSliderValue, handleAllButtons);
+        break;
+      case "mergeButton":
+        handleAllButtons(true);
+        doMergeSort(speedSliderValue, handleAllButtons);
         break;
     }
   };
@@ -123,6 +128,14 @@ const App = () => {
             onClick={startAlgorithm}
           >
             Insertion Sort
+          </Button>
+          <Button
+            disabled={allDisable}
+            id="mergeButton"
+            size="md"
+            onClick={startAlgorithm}
+          >
+            Merge Sort
           </Button>
         </div>
       </div>

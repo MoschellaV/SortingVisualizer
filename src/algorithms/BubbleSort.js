@@ -13,6 +13,7 @@ export const bubbleSort = async (s, handleAllButtons) => {
       array[j].style.backgroundColor = "orange";
       array[j + 1].style.backgroundColor = "red";
 
+      // applies delay
       await new Promise((r) => setTimeout(r, speed));
 
       var value1 = Number(array[j].getAttribute("value"));
@@ -33,6 +34,7 @@ export const bubbleSort = async (s, handleAllButtons) => {
     array[len - 1].style.backgroundColor = "black";
 
     if (!isSwapped) {
+      // turn bars green and enable buttons
       array.forEach(function (item) {
         item.style.backgroundColor = "green";
         handleAllButtons(false);

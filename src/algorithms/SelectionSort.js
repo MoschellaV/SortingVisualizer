@@ -10,6 +10,7 @@ export const selectionSort = async (s, handleAllButtons) => {
     for (let j = i + 1; j < len; j++) {
       array[j].style.backgroundColor = "red";
 
+      // applies delat
       await new Promise((r) => setTimeout(r, speed));
 
       var value1 = Number(array[j].getAttribute("value"));
@@ -40,6 +41,7 @@ export const selectionSort = async (s, handleAllButtons) => {
     }
     array[i].style.backgroundColor = "black";
   }
+  // turn bars green and enable buttons
   array.forEach(function (bar) {
     bar.style.backgroundColor = "green";
     handleAllButtons(false);
