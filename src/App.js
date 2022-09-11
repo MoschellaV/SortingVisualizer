@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./css/App.css";
 import { Slider, Button } from "@mantine/core";
-import { BubbleSort } from "./algorithms/BubbleSort";
+import { bubbleSort } from "./algorithms/BubbleSort";
 import { selectionSort } from "./algorithms/SelectionSort";
+import { insertionSort } from "./algorithms/InsertionSort";
 
 const generateRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -40,12 +41,18 @@ const App = () => {
     switch (e.currentTarget.id) {
       case "bubbleButton":
         handleAllButtons(true);
-        BubbleSort(speedSliderValue, handleAllButtons);
+        bubbleSort(speedSliderValue, handleAllButtons);
         break;
 
       case "selectionButton":
         handleAllButtons(true);
         selectionSort(speedSliderValue, handleAllButtons);
+        break;
+
+      case "insertionButton":
+        handleAllButtons(true);
+        insertionSort(speedSliderValue, handleAllButtons);
+        break;
     }
   };
 
@@ -108,6 +115,14 @@ const App = () => {
             onClick={startAlgorithm}
           >
             Selection Sort
+          </Button>
+          <Button
+            disabled={allDisable}
+            id="insertionButton"
+            size="md"
+            onClick={startAlgorithm}
+          >
+            Insertion Sort
           </Button>
         </div>
       </div>

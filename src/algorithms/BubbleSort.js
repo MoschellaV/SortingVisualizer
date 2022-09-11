@@ -1,4 +1,4 @@
-export const BubbleSort = async (s, handleAllButtons) => {
+export const bubbleSort = async (s, handleAllButtons) => {
   var speed = (700 / s) * 1.2;
   var array = document.querySelectorAll(".bar");
 
