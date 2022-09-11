@@ -11,7 +11,7 @@ export const insertionSort = async (s, handleAllButtons) => {
     let j = i - 1;
 
     while (j > -1 && current < Number(array[j].getAttribute("value"))) {
-      array[j].style.backgroundColor = "darkgreen";
+      array[j].style.backgroundColor = "orange";
 
       // applies delay
       await new Promise((r) => setTimeout(r, speed));
@@ -20,6 +20,7 @@ export const insertionSort = async (s, handleAllButtons) => {
       var temp = array[j].getAttribute("value");
       array[j].setAttribute("value", array[j + 1].getAttribute("value"));
       array[j + 1].setAttribute("value", temp);
+      array[j].style.backgroundColor = "black";
 
       // change the height of the bars
       [array[j].style.height, array[j + 1].style.height] = [
