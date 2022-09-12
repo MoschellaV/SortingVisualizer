@@ -5,6 +5,7 @@ import { bubbleSort } from "./algorithms/BubbleSort";
 import { selectionSort } from "./algorithms/SelectionSort";
 import { insertionSort } from "./algorithms/InsertionSort";
 import { doMergeSort } from "./algorithms/MergeSort";
+import { doQuickSort } from "./algorithms/QuickSort";
 
 const generateRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -14,7 +15,7 @@ const App = () => {
   const [allDisable, setAllDisable] = useState(false);
   const [sortArray, setSortArray] = useState([]);
   const [sliderValue, setSliderValue] = useState(25);
-  const [speedSliderValue, setSpeedSliderValue] = useState(50);
+  const [speedSliderValue, setSpeedSliderValue] = useState(100);
 
   const handleAllButtons = (x) => {
     setAllDisable(x);
@@ -54,9 +55,15 @@ const App = () => {
         handleAllButtons(true);
         insertionSort(speedSliderValue, handleAllButtons);
         break;
+
       case "mergeButton":
         handleAllButtons(true);
         doMergeSort(speedSliderValue, handleAllButtons);
+        break;
+
+      case "quickButton":
+        handleAllButtons(true);
+        doQuickSort(speedSliderValue, handleAllButtons);
         break;
     }
   };
@@ -78,11 +85,12 @@ const App = () => {
             showLabelOnHover={false}
           />
           <div>
-            Speed
+            <div> Delay {speedSliderValue} ms</div>
             <Slider
               disabled={allDisable}
               label={null}
               min={1}
+              max={1000}
               value={speedSliderValue}
               onChange={(val) => {
                 setSpeedSliderValue(val);
@@ -136,6 +144,14 @@ const App = () => {
             onClick={startAlgorithm}
           >
             Merge Sort
+          </Button>
+          <Button
+            disabled={allDisable}
+            id="quickButton"
+            size="md"
+            onClick={startAlgorithm}
+          >
+            Quick Sort
           </Button>
         </div>
       </div>

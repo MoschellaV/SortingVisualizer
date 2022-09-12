@@ -1,5 +1,4 @@
-export const selectionSort = async (s, handleAllButtons) => {
-  var speed = (700 / s) * 1.2;
+export const selectionSort = async (speed, handleAllButtons) => {
   var array = document.querySelectorAll(".bar");
 
   var len = array.length;

@@ -1,6 +1,5 @@
-export const doMergeSort = async (s, handleAllButtons) => {
+export const doMergeSort = async (speed, handleAllButtons) => {
   var array = document.querySelectorAll(".bar");
-  var speed = (700 / s) * 1.2;
   var left = 0;
   var right = array.length - 1;
 
