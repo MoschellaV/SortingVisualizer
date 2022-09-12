@@ -17,15 +17,15 @@ export const selectionSort = async (speed, handleAllButtons) => {
 
       // compare values
       if (value1 < value2) {
-        array[lowest].style.backgroundColor = "black";
+        array[lowest].style.backgroundColor = "#72ffff";
         lowest = j;
       }
       array[lowest].style.backgroundColor = "orange";
-      array[j].style.backgroundColor = "black";
+      array[j].style.backgroundColor = "#72ffff";
     }
 
     if (lowest !== i) {
-      array[lowest].style.backgroundColor = "black";
+      array[lowest].style.backgroundColor = "#72ffff";
 
       // swaps the value of the element
       var temp = array[i].getAttribute("value");
@@ -38,7 +38,7 @@ export const selectionSort = async (speed, handleAllButtons) => {
         array[i].style.height,
       ];
     }
-    array[i].style.backgroundColor = "black";
+    array[i].style.backgroundColor = "#72ffff";
   }
   // turn bars green and enable buttons
   array.forEach(function (bar) {

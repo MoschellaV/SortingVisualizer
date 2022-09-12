@@ -60,7 +60,7 @@ const merge = async (array, left, mid, right, speed) => {
 
           j++;
         }
-        array[k].style.backgroundColor = "darkgreen";
+        array[k].style.backgroundColor = "#72ffff";
         k++;
         array[k].style.backgroundColor = "red";
       }
@@ -69,7 +69,7 @@ const merge = async (array, left, mid, right, speed) => {
       while (i < n1) {
         array[k].setAttribute("value", Ltemp[i]);
         array[k].style.height = `${Number(array[k].getAttribute("value"))}px`;
-        array[k].style.backgroundColor = "darkgreen";
+        array[k].style.backgroundColor = "#72ffff";
 
         array[k].style.backgroundColor = "red";
         i++;
@@ -80,7 +80,7 @@ const merge = async (array, left, mid, right, speed) => {
       while (j < n2) {
         array[k].setAttribute("value", Rtemp[j]);
         array[k].style.height = `${Number(array[k].getAttribute("value"))}px`;
-        array[k].style.backgroundColor = "darkgreen";
+        array[k].style.backgroundColor = "#72ffff";
 
         array[k].style.backgroundColor = "red";
         j++;

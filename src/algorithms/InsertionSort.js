@@ -19,7 +19,7 @@ export const insertionSort = async (speed, handleAllButtons) => {
       var temp = array[j].getAttribute("value");
       array[j].setAttribute("value", array[j + 1].getAttribute("value"));
       array[j + 1].setAttribute("value", temp);
-      array[j].style.backgroundColor = "black";
+      array[j].style.backgroundColor = "#72ffff";
 
       // change the height of the bars
       [array[j].style.height, array[j + 1].style.height] = [
@@ -30,7 +30,7 @@ export const insertionSort = async (speed, handleAllButtons) => {
       j--;
     }
     array[j + 1].setAttribute("value", current);
-    array[i].style.backgroundColor = "black";
+    array[i].style.backgroundColor = "#72ffff";
   }
   // turn bars green and enable buttons
   array.forEach(function (bar) {

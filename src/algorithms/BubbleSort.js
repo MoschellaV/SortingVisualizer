@@ -26,11 +26,11 @@ export const bubbleSort = async (speed, handleAllButtons) => {
         array = document.querySelectorAll(".bar");
       }
 
-      array[j].style.backgroundColor = "black";
-      array[j + 1].style.backgroundColor = "black";
+      array[j].style.backgroundColor = "#72ffff";
+      array[j + 1].style.backgroundColor = "#72ffff";
     }
 
-    array[len - 1].style.backgroundColor = "black";
+    array[len - 1].style.backgroundColor = "#72ffff";
 
     if (!isSwapped) {
       // turn bars green and enable buttons

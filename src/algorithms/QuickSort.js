@@ -31,26 +31,32 @@ const partition = async (array, low, high, speed) => {
       i++;
       array[i].style.backgroundColor = "orange";
 
-      swap(array, i, j);
-
-      await new Promise((r) => setTimeout(r, speed));
-      array[i].style.backgroundColor = "black";
+      await swap(array, i, j, speed);
+      array[i].style.backgroundColor = "#72ffff";
     }
 
-    array[j].style.backgroundColor = "black";
+    array[j].style.backgroundColor = "#72ffff";
   }
-  swap(array, i + 1, high);
 
+  await swap(array, i + 1, high, speed);
   return i + 1;
 };
 
-function swap(array, i, j) {
-  // swap values
-  let temp = Number(array[i].getAttribute("value"));
-  array[i].setAttribute("value", Number(array[j].getAttribute("value")));
-  array[j].setAttribute("value", temp);
+async function swap(array, i, j, speed) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      // await new Promise((r) => setTimeout(r, speed));
+      console.log("s");
 
-  // swap bar heights
-  array[i].style.height = `${Number(array[i].getAttribute("value"))}px`;
-  array[j].style.height = `${Number(array[j].getAttribute("value"))}px`;
+      // swap values
+      let temp = Number(array[i].getAttribute("value"));
+      array[i].setAttribute("value", Number(array[j].getAttribute("value")));
+      array[j].setAttribute("value", temp);
+
+      // swap bar heights
+      array[i].style.height = `${Number(array[i].getAttribute("value"))}px`;
+      array[j].style.height = `${Number(array[j].getAttribute("value"))}px`;
+      resolve("Resolved");
+    }, speed);
+  });
 }
