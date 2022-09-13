@@ -25,7 +25,7 @@ export default function TheAppShell() {
 
   const makeNewArray = () => {
     // const barWidth = 50 / sliderValue + 1.4;
-    const barWidth = 2 / (sliderValue / 100) + 1.4;
+    const barWidth = 1.9 / (sliderValue / 100) + 1.4;
 
     const itemsInArray =
       ((sliderValue / 100) * document.querySelector("#array").offsetWidth) /
@@ -39,7 +39,7 @@ export default function TheAppShell() {
     }
   };
   const determineWidth = () => {
-    const calculatedWidth = 2 / (sliderValue / 100);
+    const calculatedWidth = 1.9 / (sliderValue / 100);
     return `${calculatedWidth}px`;
   };
 

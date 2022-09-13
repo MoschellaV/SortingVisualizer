@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../css/ButtonsMenu.css";
 import { Slider, Button } from "@mantine/core";
 import { bubbleSort } from "../algorithms/BubbleSort";
 import { selectionSort } from "../algorithms/SelectionSort";
@@ -10,6 +11,7 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
   const [allDisable, setAllDisable] = useState(false);
   const [speedSliderValue, setSpeedSliderValue] = useState(100);
   const [temp, setTemp] = useState(25);
+  const [sortingMethod, setSortingMethod] = useState("");
 
   const updateTwo = (val) => {
     setSliderValue(val);
@@ -22,10 +24,16 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
 
   const handleAllButtons = (x) => {
     setAllDisable(x);
+    const allButtons = document.getElementsByClassName(
+      "sorting-algorithms-button-container"
+    );
+    for (let button of allButtons) {
+      button.style.backgroundColor = "#373A40";
+    }
   };
 
-  const startAlgorithm = (e) => {
-    switch (e.currentTarget.id) {
+  const startAlgorithm = (sortingMethod) => {
+    switch (sortingMethod) {
       case "bubbleButton":
         handleAllButtons(true);
         bubbleSort(speedSliderValue, handleAllButtons);
@@ -55,11 +63,27 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
     }
   };
 
+  const selectedButton = (e) => {
+    const allButtons = document.getElementsByClassName(
+      "sorting-algorithms-button-container"
+    );
+
+    for (let button of allButtons) {
+      console.log("dis");
+      button.style.backgroundColor = "#1971c2";
+    }
+
+    setSortingMethod(e.currentTarget.id);
+    document.getElementById(e.currentTarget.id).style.backgroundColor =
+      "#2F9E44";
+  };
+
   return (
     <div>
-      <div>
+      <div className="slider-container">
         <div>Items in array</div>
         <Slider
+          // color="indigo"
           disabled={allDisable}
           label={null}
           min={7}
@@ -72,9 +96,10 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
           showLabelOnHover={false}
         />
       </div>
-      <div>
+      <div className="slider-container">
         <div> Delay {speedSliderValue} ms</div>
         <Slider
+          // color="indigo"
           disabled={allDisable}
           label={null}
           min={1}
@@ -87,55 +112,80 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
           showLabelOnHover={false}
         />
       </div>
-      <Button disabled={allDisable} size="md" onClick={() => makeNewArray()}>
-        New Array
+      <Button
+        className="button-container"
+        fullWidth
+        disabled={allDisable}
+        size="sm"
+        onClick={() => makeNewArray()}
+      >
+        Generate New Array
       </Button>
       <Button
+        className="button-container"
+        color="red"
+        fullWidth
         disabled={!allDisable}
-        size="md"
+        size="sm"
         onClick={() => window.location.reload(true)}
       >
         Stop Algorithm
       </Button>
       <Button
+        className="sorting-algorithms-button-container "
         disabled={allDisable}
         id="bubbleButton"
-        size="md"
-        onClick={startAlgorithm}
+        size="sm"
+        onClick={(e) => selectedButton(e)}
       >
-        Bubble Sort
+        Bubble
       </Button>
       <Button
+        className="sorting-algorithms-button-container "
         disabled={allDisable}
         id="selectionButton"
-        size="md"
-        onClick={startAlgorithm}
+        size="sm"
+        onClick={(e) => selectedButton(e)}
       >
-        Selection Sort
+        Selection
       </Button>
       <Button
+        className="sorting-algorithms-button-container "
         disabled={allDisable}
         id="insertionButton"
-        size="md"
-        onClick={startAlgorithm}
+        size="sm"
+        onClick={(e) => selectedButton(e)}
       >
-        Insertion Sort
+        Insertion
       </Button>
       <Button
+        className="sorting-algorithms-button-container "
         disabled={allDisable}
         id="mergeButton"
-        size="md"
-        onClick={startAlgorithm}
+        size="sm"
+        onClick={(e) => selectedButton(e)}
       >
-        Merge Sort
+        Merge
       </Button>
       <Button
+        className="sorting-algorithms-button-container "
         disabled={allDisable}
         id="quickButton"
-        size="md"
-        onClick={startAlgorithm}
+        size="sm"
+        onClick={(e) => selectedButton(e)}
       >
-        Quick Sort
+        Quick
+      </Button>
+      <Button
+        className="button-container"
+        color="yellow"
+        fullWidth
+        disabled={allDisable}
+        id="quickButton"
+        size="sm"
+        onClick={() => startAlgorithm(sortingMethod)}
+      >
+        Sort
       </Button>
     </div>
   );
