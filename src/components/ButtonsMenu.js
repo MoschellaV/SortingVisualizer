@@ -27,8 +27,14 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
     const allButtons = document.getElementsByClassName(
       "sorting-algorithms-button-container"
     );
-    for (let button of allButtons) {
-      button.style.backgroundColor = "#373A40";
+    if (x) {
+      for (let button of allButtons) {
+        button.style.backgroundColor = "#373A40";
+      }
+    } else {
+      for (let button of allButtons) {
+        button.style.backgroundColor = "#1971c2";
+      }
     }
   };
 
@@ -58,9 +64,23 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
         handleAllButtons(true);
         doQuickSort(speedSliderValue, handleAllButtons);
         break;
+
+      case "":
+        console.log("hi");
+
+        document
+          .getElementById("sortButton")
+          .classList.add("cannot-click-anim");
+        break;
       default:
         console.log("default case");
     }
+    setTimeout(() => {
+      console.log("done");
+      document
+        .getElementById("sortButton")
+        .classList.remove("cannot-click-anim");
+    }, 900);
   };
 
   const selectedButton = (e) => {
@@ -69,35 +89,52 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
     );
 
     for (let button of allButtons) {
-      console.log("dis");
       button.style.backgroundColor = "#1971c2";
     }
 
     setSortingMethod(e.currentTarget.id);
     document.getElementById(e.currentTarget.id).style.backgroundColor =
-      "#2F9E44";
+      "#D6336C";
   };
 
   return (
-    <div>
-      <div className="slider-container">
-        <div>Items in array</div>
-        <Slider
-          // color="indigo"
-          disabled={allDisable}
-          label={null}
-          min={7}
-          max={100}
-          value={temp}
-          onChange={(val) => {
-            updateTwo(val);
-          }}
-          size="lg"
-          showLabelOnHover={false}
-        />
-      </div>
-      <div className="slider-container">
-        <div> Delay {speedSliderValue} ms</div>
+    <div className="all-button-container">
+      <Button
+        className="button-container "
+        color={"pink"}
+        fullWidth
+        disabled={allDisable}
+        size="sm"
+        onClick={() => makeNewArray()}
+      >
+        New Array
+      </Button>
+      <Button
+        className="button-container"
+        color="red"
+        fullWidth
+        disabled={!allDisable}
+        size="sm"
+        onClick={() => window.location.reload(true)}
+      >
+        Stop Algorithm
+      </Button>
+      <div className="slider-header">Items in array</div>
+      <Slider
+        // color="indigo"
+        disabled={allDisable}
+        label={null}
+        min={7}
+        max={100}
+        value={temp}
+        onChange={(val) => {
+          updateTwo(val);
+        }}
+        size="lg"
+        showLabelOnHover={false}
+      />
+      <div style={{ paddingTop: "10px", paddingBottom: "10px" }}>
+        <div className="slider-header"> Delay {speedSliderValue} ms</div>
         <Slider
           // color="indigo"
           disabled={allDisable}
@@ -112,25 +149,7 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
           showLabelOnHover={false}
         />
       </div>
-      <Button
-        className="button-container"
-        fullWidth
-        disabled={allDisable}
-        size="sm"
-        onClick={() => makeNewArray()}
-      >
-        Generate New Array
-      </Button>
-      <Button
-        className="button-container"
-        color="red"
-        fullWidth
-        disabled={!allDisable}
-        size="sm"
-        onClick={() => window.location.reload(true)}
-      >
-        Stop Algorithm
-      </Button>
+
       <Button
         className="sorting-algorithms-button-container "
         disabled={allDisable}
@@ -178,10 +197,10 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
       </Button>
       <Button
         className="button-container"
-        color="yellow"
+        color="pink"
         fullWidth
         disabled={allDisable}
-        id="quickButton"
+        id="sortButton"
         size="sm"
         onClick={() => startAlgorithm(sortingMethod)}
       >

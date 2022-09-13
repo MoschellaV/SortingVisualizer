@@ -1,6 +1,7 @@
 .array-container {
   position: relative;
   padding-top: 30px;
+  padding-right: 10px;
 }
 .bar {
   background-color: #72ffff;

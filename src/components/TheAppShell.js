@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/AppShell.css";
 import {
   AppShell,
   Navbar,
@@ -16,6 +17,7 @@ export default function TheAppShell() {
   const [opened, setOpened] = useState(false);
 
   ///////
+  // handles the creation of the array
   const [sortArray, setSortArray] = useState([]);
   const [sliderValue, setSliderValue] = useState(25);
 
@@ -29,7 +31,8 @@ export default function TheAppShell() {
 
     const itemsInArray =
       ((sliderValue / 100) * document.querySelector("#array").offsetWidth) /
-      barWidth;
+        barWidth -
+      3;
     setSortArray([]);
     document.querySelectorAll(".bar").forEach(function (item) {
       item.style.backgroundColor = "#72ffff";
@@ -39,7 +42,9 @@ export default function TheAppShell() {
     }
   };
   const determineWidth = () => {
+    // const calculatedWidth = 1.9 / (sliderValue / 100);
     const calculatedWidth = 1.9 / (sliderValue / 100);
+
     return `${calculatedWidth}px`;
   };
 
@@ -59,9 +64,9 @@ export default function TheAppShell() {
       navbar={
         <Navbar
           p="md"
-          hiddenBreakpoint="sm"
+          hiddenBreakpoint="md"
           hidden={!opened}
-          width={{ sm: 200, lg: 300 }}
+          width={{ sm: 200, lg: 320 }}
         >
           <Text>
             <ButtonsMenu
@@ -73,7 +78,7 @@ export default function TheAppShell() {
         </Navbar>
       }
       header={
-        <Header height={70} p="md">
+        <Header height={90} p="md">
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
@@ -87,7 +92,9 @@ export default function TheAppShell() {
               />
             </MediaQuery>
 
-            <Text>Vince Moschella's Sorting Visualizer</Text>
+            <Text>
+              <h1>Vince Moschella's Sorting Visualizer</h1>
+            </Text>
           </div>
         </Header>
       }
