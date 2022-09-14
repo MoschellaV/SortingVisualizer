@@ -1,7 +1,14 @@
 .array-container {
   position: relative;
-  padding-top: 30px;
-  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: #1a1b1e;
+  border-radius: 15px;
+
+  background-color: #1a1b1e;
 }
 .bar {
   background-color: #72ffff;

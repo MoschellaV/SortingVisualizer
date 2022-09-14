@@ -89,12 +89,14 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
     );
 
     for (let button of allButtons) {
+      // changes buttons back to blue
       button.style.backgroundColor = "#1971c2";
     }
 
     setSortingMethod(e.currentTarget.id);
+    // changes selected button color
     document.getElementById(e.currentTarget.id).style.backgroundColor =
-      "#D6336C";
+      "#22B8CF";
   };
 
   return (
@@ -149,7 +151,9 @@ export const ButtonsMenu = ({ makeNewArray, sliderValue, setSliderValue }) => {
           showLabelOnHover={false}
         />
       </div>
-
+      <div style={{ textAlign: "center" }}>
+        <strong>Select an Algorithm</strong>
+      </div>
       <Button
         className="sorting-algorithms-button-container "
         disabled={allDisable}
