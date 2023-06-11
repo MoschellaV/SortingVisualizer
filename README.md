@@ -50,6 +50,7 @@ The website is built using the following tech:
 - [**React:**](https://react.dev/) Used for building the user interface, providing a modular and component-based approach.
 - [**JavaScript**:](https://developer.mozilla.org/en/JavaScript) Used for implementing the sorting algorithms and manipulating the DOM.
 - [**Mantine:**](https://mantine.dev/) UI library used for styling and enhancing the the user interface.
+- [**Netlify:**](https://www.netlify.com/) Used Netlify to host the project.
 <br/>
 
 ### 🧠 What I Learned
